@@ -23,4 +23,44 @@ According to my tests this approach is not recommended if you are going to handl
 
 ### Then why bother doing this?
 
-Because it is very simple and very useful, at least for me. I am sharing it mostly because I want a better way to reuse this code.
+Because it is very simple and very useful - at least for me. I am sharing it mostly because I want a better way to reuse this code.
+
+# Installation
+
+```
+npm install lamartinecabral/sorted
+```
+or
+```
+yarn add lamartinecabral/sorted
+```
+
+# Usage
+
+```javascript
+import { insert, lowerBound, ltCount } from 'sorted';
+
+const arr = [];
+insert(arr, 5);
+insert(arr, 7);
+insert(arr, 2);
+
+console.log(arr); // [2, 5, 7]
+console.log(lowerBound(arr, 3)); // 5
+console.log(ltCount(arr, 7)); // 2
+```
+or
+```javascript
+import Sorted from 'sorted';
+
+const { insert, lowerBound, ltCount } = new Sorted((a,b)=>a.id-b.id);
+
+const arr = [];
+insert(arr, {id: 5, name: 'foo'});
+insert(arr, {id: 7, name: 'bar'});
+insert(arr, {id: 2, name: 'bak'});
+
+console.log(arr.map(a=>a.id)); // [2, 5, 7]
+console.log(lowerBound(arr, {id: 3})); // {id: 5, name: 'foo'})
+console.log(ltCount(arr, {id: 7})); // 2
+```

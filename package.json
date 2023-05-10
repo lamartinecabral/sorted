@@ -1,0 +1,19 @@
+{
+  "name": "sorted",
+  "version": "0.0.1",
+  "description": "A library to handle sorted arrays.",
+  "main": "sorted.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "binary",
+    "search",
+    "insertion",
+    "sort",
+    "sorted",
+    "ordered"
+  ],
+  "author": "Lamartine Cabral",
+  "license": "ISC"
+}

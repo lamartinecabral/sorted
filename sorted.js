@@ -1,10 +1,15 @@
 // @ts-check
 
 function comparator(a, b) {
-  let [x, y] = [+a, +b];
-  // @ts-ignore
-  if (isNaN(x) || isNaN(y)) [x, y] = ["" + a, "" + b];
-  return x < y ? -1 : x > y ? 1 : 0;
+  if(typeof a !== typeof b) return (typeof a).localeCompare(typeof b);
+  switch(typeof a){
+    case 'object':
+    case 'function':
+    case 'symbol':
+      return String(a).localeCompare(String(b));
+    default:
+      return a < b ? -1 : a > b ? 1 : 0;
+  }
 }
 
 /** @param {any[]} arr */
